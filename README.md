@@ -24,6 +24,10 @@ During training, match the ground truth box with these predicted boxes based on 
 - Choose 9 clusters and 3 scales arbitrarily and then divide up the clusters evenly across scales. For e.g. (10 x 13), (16 x 30), (33 x 23), (30 x 61), (62 x 45), (59 x 119), (116 x 90), (156 x 198), (373 x 326).
 ![GitHub Logo](/images/yolo_v3.png)
 
+# Hard example mining
+For most detectors like SSD and YOLO, we make far more predictions than the number of objects presence. So there are much more negative matches than positive matches. This creates a class imbalance which hurts training. We are training the model to learn background space rather than detecting objects. However, we need negative sampling so it can learn what constitutes a bad prediction. So, for example in SSD, we sort training examples by their calculated confidence loss. We pick the top ones and makes sure the ratio between the picked negatives and positives is at most 3:1. This leads to a faster and more stable training.
+# Non-maximal suppression in inference
+Detectors can make duplicate detections for the same object. To fix this, we apply non-maximal suppression to remove duplications with lower confidence. We sort the predictions by the confidence scores and go down the list one by one. If any previous prediction has the same class and IoU greater than 0.5 with the current prediction, we remove it from the list.
 
 # Class Imbalance Problem of One-Stage Detector
 
