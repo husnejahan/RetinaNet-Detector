@@ -36,7 +36,9 @@ RetinaNet uses ResNet-101-FPN as backbone architecture and two-task specific sub
 A new loss function Focal loss to deal with the foreground-background class imbalance posed in one-stage detectors.
 ![GitHub Logo](/images/retinanet.png)
 
-RetinaNet is a single, unified network composed of a backbone network and two task-specific subnetworks. The backbone is responsible for computing a convolutional fea- ture map over an entire input image and is an off-the-self convolutional network. The first subnet performs convo- lutional object classification on the backbone’s output; the second subnet performs convolutional bounding box regres- sion. The two subnetworks feature a simple design that we propose specifically for one-stage, dense detection
+- RetinaNet forms a single FCN comprised of a ResNet-FPN backbone, a classification subnet, and a box regression subnet
+- RetinaNet is a single, unified network composed of a backbone network and two task-specific subnetworks. The backbone is responsible for computing a convolutional feature map over an entire input image and is an off-the-self convolutional network. 
+- The first subnet performs convolutional object classification on the backbone’s output; the second subnet performs convolutional bounding box regression. The two subnetworks feature a simple design that we propose specifically for one-stage, dense detection
 
 # Focal Loss
 - Predicting the class of the object (n class probabilities) is a classification problem. 
