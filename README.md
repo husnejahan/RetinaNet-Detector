@@ -39,12 +39,26 @@ A new loss function Focal loss to deal with the foreground-background class imba
 - RetinaNet forms a single FCN comprised of a ResNet-FPN backbone, a classification subnet, and a box regression subnet
 - RetinaNet is a single, unified network composed of a backbone network and two task-specific subnetworks. The backbone is responsible for computing a convolutional feature map over an entire input image and is an off-the-self convolutional network. 
 - The first subnet performs convolutional object classification on the backbone’s output; the second subnet performs convolutional bounding box regression. The two subnetworks feature a simple design that we propose specifically for one-stage, dense detection
+- we propose the focal loss which applies a modulating term to the cross entropy loss in order to focus learning on hard negative examples
+- ResNet is used for deep feature extraction.
+- Feature Pyramid Network (FPN) is used on top of ResNet for constructing a rich multi-scale feature pyramid from one single resolution input image. (Originally, FPN is a two-stage detector which has state-of-the-art results. Please read my review about FPN if interested.)
+- FPN is multiscale, semantically strong at all scales, and fast to compute.
+There are some modest changes for the FPN here. A pyramid is generated from P3 to P7. Some major changes are: P2 is not used now due to computational reasons. (ii) P6 is computed by strided convolution instead of downsampling. (iii) P7 is included additionally to improve the accuracy of large object detection.
 
 # Focal Loss
 - Predicting the class of the object (n class probabilities) is a classification problem. 
 - Predicting the four coordinates for the bounding box is a regression problem. We need a loss function that combines these two problems.
 - The loss is a weighted sum of localization loss (bounding boxes) and confidence loss (classes): We calculate how much the predicted bounding box (default box coordinates + predicted offsets) differs from the matched ground truth bounding box (L1 loss) and how correctly the default box predicted the class (binary cross entropy).
+In practice we use an alpha balanced variant of the focal loss.
 
 - The class imbalance causes two problems: (1) training is inefficient as most locations are easy negatives that contribute no useful learning signal; (2) the easy negatives can overwhelm training and lead to degenerate models.
 
+- Cross Entropy (CE) Loss
+![GitHub Logo](/images/ce.png)
+- α-Balanced CE Loss
+ ![GitHub Logo](/images/ace.png)
+ - Focal Loss (FL)
+ ![GitHub Logo](/images/fl.png)
+ - α-Balanced Variant of FL
+ ![GitHub Logo](/images/afl.png)
  
