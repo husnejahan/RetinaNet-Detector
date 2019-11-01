@@ -1,7 +1,7 @@
 # RetinaNet-Detector
-RetinaNet Detector
+[RetinaNet Detector](https://towardsdatascience.com/review-retinanet-focal-loss-object-detection-38fba6afabe4)
 
-# Introduction to Object Detection
+# [Introduction to Object Detection](https://dudeperf3ct.github.io/object/detection/2019/01/07/Mystery-of-Object-Detection/#classification-loss)
 Here, the classification and localization task contains input single image and we are supposed to identify what class does that image belong to and where is it. But in object detection, this problem gets blown on a multiple scale. There can be any number of objects in image and each object will have different size in image, for given image we have to detect the category the object belong to and locate the object.
 
 ![GitHub Logo](/images/puppy.png)
