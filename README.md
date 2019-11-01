@@ -13,7 +13,7 @@ Here, the classification and localization task contains input single image and w
 - For each box, simultaneously predict a) the bounding box offset and b) the class probabilities
 During training, match the ground truth box with these predicted boxes based on IoU. The best predicted box will be labeled a “positive,” along with all other boxes that have an IoU with the truth >0.5
 - To put it simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
-![GitHub Logo](/images/ssd1.png)
+![GitHub Logo](/images/ssd1.jpeg)
 
 # Class Imbalance Problem of One-Stage Detector
 
