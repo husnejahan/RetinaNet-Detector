@@ -15,6 +15,16 @@ During training, match the ground truth box with these predicted boxes based on 
 - To put it simply, SSD approach is based on a feed-forward convolutional network that produces a fixed-size collection of bounding boxes and scores for the presence of object class instances in those boxes, followed by a non-maximum suppression step to produce the final detections.
 ![GitHub Logo](/images/ssd1.jpeg)
 
+# YOLOv3
+- New CNN architecutre with 53 layers, or popularly known among dark side as Darknet-53
+- Replace softmax with independent logistic classifiers. Using a softmax imposes the assumption that each box has exactly one class which is often not the case. A multilabel approach better models the data.
+
+- YOLOv3 predicts boxes at 3 different scales and extracts features from those scales using a similar concept to feature pyramid networks. Model predicts a 3-d tensor encoding bounding box, objectness, and class predictions. For e.g. N x N x (3 * (4 + 1 + C)) for the 4 bounding box offsets, 1 objectness prediction, and C class predictions.
+
+- Choose 9 clusters and 3 scales arbitrarily and then divide up the clusters evenly across scales. For e.g. (10 x 13), (16 x 30), (33 x 23), (30 x 61), (62 x 45), (59 x 119), (116 x 90), (156 x 198), (373 x 326).
+![GitHub Logo](/images/yolo_v3.png)
+
+
 # Class Imbalance Problem of One-Stage Detector
 
 - A much larger set of candidate object locations is regularly sampled across an image (~100k locations), which densely cover spatial positions, scales and aspect ratios.
