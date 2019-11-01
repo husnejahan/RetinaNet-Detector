@@ -54,11 +54,18 @@ In practice we use an alpha balanced variant of the focal loss.
 - The class imbalance causes two problems: (1) training is inefficient as most locations are easy negatives that contribute no useful learning signal; (2) the easy negatives can overwhelm training and lead to degenerate models.
 
 - Cross Entropy (CE) Loss
+
 ![GitHub Logo](/images/ce.png)
+
 - α-Balanced CE Loss
+
  ![GitHub Logo](/images/ace.png)
+ 
  - Focal Loss (FL)
+ 
  ![GitHub Logo](/images/fl.png)
+ 
  - α-Balanced Variant of FL
+ 
  ![GitHub Logo](/images/afl.png)
  
