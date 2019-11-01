@@ -70,4 +70,4 @@ In practice we use an alpha balanced variant of the focal loss.
  ![GitHub Logo](/images/afl.png)
  
 [retinanet](https://towardsdatascience.com/review-retinanet-focal-loss-object-detection-38fba6afabe4)
-[I'm an inline-style link](https://www.google.com)
+
