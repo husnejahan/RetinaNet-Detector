@@ -6,6 +6,12 @@ Here, the classification and localization task contains input single image and w
 
 ![GitHub Logo](/images/puppy.png)
 
+# SSD
+> Pass the image through a series of convolutional layers, yielding several sets of feature maps at different scales (e.g. 10x10, then 6x6, then 3x3, etc.)
+> For each location in each of these feature maps, use a 3x3 convolutional filter to evaluate a small set of default bounding boxes. These default bounding boxes are essentially equivalent to Faster R-CNN’s anchor boxes
+>For each box, simultaneously predict a) the bounding box offset and b) the class probabilities
+During training, match the ground truth box with these predicted boxes based on IoU. The best predicted box will be labeled a “positive,” along with all other boxes that have an IoU with the truth >0.5
+
 # Class Imbalance Problem of One-Stage Detector
 
 ![GitHub Logo](/images/ssd.png)
